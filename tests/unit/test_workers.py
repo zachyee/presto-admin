@@ -35,7 +35,7 @@ class TestWorkers(BaseTestCase):
                      'plugin.config-dir': '/etc/presto/catalog',
                      'plugin.dir': '/usr/lib/presto/lib/plugin'},
                     'jvm.config': ['-server',
-                                   '-Xmx2G',
+                                   '-Xmx16G',
                                    '-XX:-UseBiasedLocking',
                                    '-XX:+UseG1GC',
                                    '-XX:+ExplicitGCInvokesConcurrent',
@@ -47,7 +47,7 @@ class TestWorkers(BaseTestCase):
                                           'discovery.uri': 'http://a:8080',
                                           'http-server.http.port': '8080',
                                           'query.max-memory': '50GB',
-                                          'query.max-memory-per-node': '1GB'}
+                                          'query.max-memory-per-node': '8GB'}
                     }
 
         self.assertEqual(actual_default, expected)
@@ -113,7 +113,7 @@ class TestWorkers(BaseTestCase):
                     {'my-property': 'value',
                      'node.environment': 'test'},
                     'jvm.config': ['-server',
-                                   '-Xmx2G',
+                                   '-Xmx16G',
                                    '-XX:-UseBiasedLocking',
                                    '-XX:+UseG1GC',
                                    '-XX:+ExplicitGCInvokesConcurrent',
@@ -125,7 +125,7 @@ class TestWorkers(BaseTestCase):
                                           'discovery.uri': 'http://j:8080',
                                           'http-server.http.port': '8080',
                                           'query.max-memory': '50GB',
-                                          'query.max-memory-per-node': '1GB'}
+                                          'query.max-memory-per-node': '8GB'}
                     }
         self.assertEqual(workers.Worker().get_conf(), expected)
 

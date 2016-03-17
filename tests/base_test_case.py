@@ -115,12 +115,26 @@ class BaseTestCase(unittest.TestCase):
             self.fail("Expected exception " + str(expected_exception) +
                       " not raised" + msg)
 
+    def assertRaisesMessageIgnoringOrder(self, expected_exception,
+                                         expected_msg, callable_object,
+                                         *args, **kwargs):
+        try:
+            callable_object(*args, **kwargs)
+        except expected_exception as e:
+            self.assertEqualIgnoringOrder(expected_msg, str(e))
+        else:
+            self.fail("Expected exception " + str(expected_exception) +
+                      " not raised")
+
+    def assertLazyMessage(self, msg_func, assert_function, *args, **kwargs):
+        try:
+            assert_function(*args, **kwargs)
+        except AssertionError:
+            self.fail(msg=msg_func())
+
     # equivalent to python 2.7's unittest.assertRegexpMatches()
-    def assertRegexpMatches(self, text, expected_regexp, msg=None):
-        if not(re.search(expected_regexp, text)):
-            if not msg:
-                msg = "Regexp didn't match"
-            self.fail("%s: %s not found in %s" % (msg, expected_regexp, text))
+    def assertRegexpMatches(
+            self, text, expected_regexp, msg="Regexp didn't match"):
         self.assertTrue(re.search(expected_regexp, text), msg)
 
     def assertRegexpMatchesLineByLine(self, actual_lines,

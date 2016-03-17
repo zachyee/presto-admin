@@ -113,7 +113,7 @@ configurations:
 *jvm.config* ::
 
     -server
-    -Xmx2G
+    -Xmx16G
     -XX:-UseBiasedLocking
     -XX:+UseG1GC
     -XX:+ExplicitGCInvokesConcurrent
@@ -129,7 +129,7 @@ For workers: ::
     coordinator=false
     discovery.uri=http://<coordinator>:8080
     http-server.http.port=8080
-    query.max-memory-per-node=1GB
+    query.max-memory-per-node=8GB
     query.max-memory=50GB
 
 For coordinator: ::
@@ -139,7 +139,7 @@ For coordinator: ::
     discovery.uri=http://<coordinator>:8080
     http-server.http.port=8080
     node-scheduler.include-coordinator=false
-    query.max-memory-per-node=1GB
+    query.max-memory-per-node=8GB
     query.max-memory=50GB
 
     # if the coordinator is also a worker, it will have the following property instead
@@ -156,7 +156,7 @@ following ``jvm.config`` to ``/etc/opt/prestoadmin/coordinator``
 .. code-block:: none
 
     -server
-    -Xmx2G
+    -Xmx16G
     -XX:-UseBiasedLocking
     -XX:+UseG1GC
     -XX:+ExplicitGCInvokesConcurrent
@@ -249,7 +249,7 @@ once, you could run ::
     sudo ./presto-admin server restart
 
 Adding a Custom Connector
---------------------------
+-------------------------
 In order to install a custom connector not included with Presto, the jar must be
 added to the Presto plugin location using the ``plugin add_jar`` command before
 running the ``connector add`` command.

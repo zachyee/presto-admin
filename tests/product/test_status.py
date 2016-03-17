@@ -47,7 +47,7 @@ class TestStatus(BaseProductTestCase):
         self.setup_cluster(NoHadoopBareImageProvider(),
                            self.STANDALONE_PRESTO_CLUSTER)
         self.run_prestoadmin('server start')
-        status_output = self._server_status_with_retries()
+        status_output = self._server_status_with_retries(check_connectors=True)
         self.check_status(status_output, self.base_status())
 
     def test_status_only_coordinator(self):
@@ -109,7 +109,7 @@ class TestStatus(BaseProductTestCase):
         topology = {"coordinator": "slave1", "workers":
                     ["master", self.cluster.get_down_hostname("slave2"),
                      "slave3"]}
-        status_output = self._server_status_with_retries()
+        status_output = self._server_status_with_retries(check_connectors=True)
         statuses = self.node_not_available_status(
             topology, self.cluster.internal_slaves[1])
         self.check_status(status_output, statuses)
@@ -123,7 +123,7 @@ http-server.http.port=8090"""
 
         self.installer.install(extra_configs=port_config)
         self.run_prestoadmin('server start')
-        status_output = self._server_status_with_retries()
+        status_output = self._server_status_with_retries(check_connectors=True)
 
         self.check_status(status_output, self.base_status(), 8090)
 
@@ -187,6 +187,14 @@ http-server.http.port=8090"""
 
         return statuses
 
+    def status_fail_msg(self, actual_output, expected_regexp):
+        log_tail = self.fetch_log_tail(lines=1000)
+
+        return (
+            '=== ACTUAL OUTPUT ===\n%s\n=== DID NOT MATCH REGEXP ===\n%s\n'
+            '=== LOG FOR DEBUGGING ===\n%s=== END OF LOG ===' % (
+                actual_output, expected_regexp, log_tail))
+
     def check_status(self, cmd_output, statuses, port=8080):
         expected_output = []
         for status in statuses:
@@ -205,12 +213,23 @@ http-server.http.port=8090"""
                      '\tNode status:    active',
                      '\tConnectors:     system, tpch']
 
-        self.assertRegexpMatches(cmd_output, '\n'.join(expected_output))
+        expected_regex = '\n'.join(expected_output)
+        # The status command is written such that there are a couple ways that
+        # the presto client can fail that result in partial output from the
+        # command, but errors in the logs. If we fail to match, we include the
+        # log information in the assertion message to make determining exactly
+        # what failed easier. Grab the logs lazily so that we don't incur the
+        # cost of getting them when they aren't needed. The status tests are
+        # slow enough already.
+        self.assertLazyMessage(
+            lambda: self.status_fail_msg(cmd_output, expected_regex),
+            self.assertRegexpMatches, cmd_output, expected_regex)
 
-    def _server_status_with_retries(self):
-        return self.retry(lambda: self._get_status_until_coordinator_updated())
+    def _server_status_with_retries(self, check_connectors=False):
+        return self.retry(lambda: self._get_status_until_coordinator_updated(
+            check_connectors))
 
-    def _get_status_until_coordinator_updated(self):
+    def _get_status_until_coordinator_updated(self, check_connectors=False):
         status_output = self.run_prestoadmin('server status')
         if 'the coordinator has not yet discovered this node' in status_output:
             raise PrestoError('Coordinator has not discovered all nodes yet: '
@@ -219,4 +238,6 @@ http-server.http.port=8090"""
            'unable to query coordinator' in status_output:
             raise PrestoError('Coordinator not started up properly yet.'
                               '\nOutput: %s' % status_output)
+        if check_connectors and 'Connectors:' not in status_output:
+            raise PrestoError('Connectors not loaded yet: %s' % status_output)
         return status_output

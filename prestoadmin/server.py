@@ -25,7 +25,8 @@ from fabric.context_managers import settings, hide
 from fabric.decorators import runs_once, with_settings, parallel
 from fabric.operations import run, os
 from fabric.tasks import execute
-from fabric.utils import warn
+from fabric.utils import warn, error
+from retrying import retry
 
 from prestoadmin import configure_cmds
 from prestoadmin import connector
@@ -74,11 +75,10 @@ NODE_INFO_PER_URI_SQL = VersionRangeList(
                   'system.runtime.nodes where '
                   'url_extract_host(http_uri) = \'%s\'',
                  new_sysnode_processor))
-
 )
 
-EXTERNAL_IP_SQL = 'select url_extract_host(http_uri) from system.runtime.nodes' \
-                  ' WHERE node_id = \'%s\''
+EXTERNAL_IP_SQL = 'select url_extract_host(http_uri) from ' \
+                  'system.runtime.nodes WHERE node_id = \'%s\''
 CONNECTOR_INFO_SQL = 'select catalog_name from system.metadata.catalogs'
 PRESTO_RPM_MIN_REQUIRED_VERSION = 103
 PRESTO_TD_RPM = ['101t']
@@ -115,6 +115,7 @@ def install(local_path):
 def deploy_install_configure(local_path):
     package.deploy_install(local_path)
     update_configs()
+    wait_for_presto_user()
 
 
 def add_tpch_connector():
@@ -132,6 +133,14 @@ def update_configs():
         connector.add()
     except ConfigFileNotFoundError:
         _LOGGER.info('No connector directory found, not adding connectors.')
+
+
+@retry(stop_max_delay=3000, wait_fixed=250)
+def wait_for_presto_user():
+    ret = sudo('getent passwd presto', quiet=True)
+    if not ret.succeeded:
+        raise Exception('Presto package was not installed successfully. '
+                        'Presto user was not created.')
 
 
 @task
@@ -217,9 +226,9 @@ def check_status_for_control_commands():
     if check_server_status(client):
         print('Server started successfully on: ' + env.host)
     else:
-        warn('Server failed to start on: ' + env.host
-             + '\nPlease check ' + lookup_server_log_file(env.host) + ' and ' +
-             lookup_launcher_log_file(env.host))
+        error('Server failed to start on: ' + env.host +
+              '\nPlease check ' + lookup_server_log_file(env.host) + ' and ' +
+              lookup_launcher_log_file(env.host))
 
 
 def is_port_in_use(host):
@@ -235,8 +244,8 @@ def is_port_in_use(host):
     if output:
         _LOGGER.info("Presto server port already in use. Skipping "
                      "server start...")
-        warn('Server failed to start on %s. Port %s already in use'
-             % (env.host, str(portnum)))
+        error('Server failed to start on %s. Port %s already in use'
+              % (env.host, str(portnum)))
     return output
 
 
@@ -468,8 +477,8 @@ def get_ext_ip_of_node(client):
     external_ip = ''
     if len(external_ip_row) > 1:
         warn_more_than_one_ip = 'More than one external ip found for ' \
-                                + env.host + '. There could be multiple nodes ' \
-                                             'associated with the same node.id'
+                                + env.host + '. There could be multiple ' \
+                                'nodes associated with the same node.id'
         _LOGGER.debug(warn_more_than_one_ip)
         warn(warn_more_than_one_ip)
         return external_ip

@@ -109,25 +109,19 @@ class bdist_prestoadmin(Command):
         # the internal PyPI. During the build we download wheels for both
         # interpreters compiled on Centos 6.6.
         pycrypto_whl = 'pycrypto-2.6.1-{0}-none-linux_x86_64.whl'
-        pypi_pycrypto_url = 'http://bdch-ftp.td.teradata.com:8082/packages/' + \
-                            pycrypto_whl
+        pypi_pycrypto_url = 'http://bdch-ftp.td.teradata.com:8082/' + \
+                            'packages/' + pycrypto_whl
         if sys.version.startswith('2.6'):
             alternate_interpreter_version = 'cp27'  # fetch 2.7 from PyPI
         else:
             alternate_interpreter_version = 'cp26'
-        try:
-            urllib.urlretrieve(
-                pypi_pycrypto_url.format(alternate_interpreter_version),
-                os.path.join(
-                    thirdparty_dir,
-                    pycrypto_whl.format(alternate_interpreter_version))
-                )
-        except IOError as e:
-            # Can't reach TD internal PyPI, continue anyway
-            if e.errno == 'socket error':
-                pass
-            else:
-                raise
+
+        urllib.urlretrieve(
+            pypi_pycrypto_url.format(alternate_interpreter_version),
+            os.path.join(
+                thirdparty_dir,
+                pycrypto_whl.format(alternate_interpreter_version))
+            )
         # Thank you for visiting HackLand!
 
         pip.main(['install',

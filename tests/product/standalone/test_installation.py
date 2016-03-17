@@ -28,6 +28,7 @@ from tests.product.constants import DEFAULT_DOCKER_MOUNT_POINT, \
     DEFAULT_LOCAL_MOUNT_POINT
 
 install_py26_script = """\
+set -e
 echo "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" \
     > /etc/apt/sources.list.d/fkrull-deadsnakes-trusty.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys \
@@ -102,8 +103,9 @@ class TestInstallation(BaseProductTestCase):
             ubuntu_container.start_containers(
                 image + ':' + tag, cmd='tail -f /var/log/bootstrap.log')
 
-            ubuntu_container.run_script_on_host(install_py26_script,
-                                                ubuntu_container.master)
+            self.retry(lambda: ubuntu_container.run_script_on_host(
+                install_py26_script, ubuntu_container.master))
+
             ubuntu_container.exec_cmd_on_host(
                 ubuntu_container.master, 'sudo apt-get -y install wget')
 
@@ -153,3 +155,26 @@ class TestInstallation(BaseProductTestCase):
         self.assertTrue('Adding pypi.python.org as trusted-host. Cannot find'
                         ' certificate file: %s' % cert_file not in output,
                         'Unable to find cert file; output: %s' % output)
+
+    def test_additional_dirs_created(self):
+        install_dir = '/opt'
+        script = """
+            set -e
+            cp {mount_dir}/prestoadmin-*.tar.bz2 {install_dir}
+            cd {install_dir}
+            tar jxf prestoadmin-*.tar.bz2
+            cd prestoadmin
+             ./install-prestoadmin.sh
+        """.format(mount_dir=self.cluster.mount_dir,
+                   install_dir=install_dir)
+        self.cluster.run_script_on_host(script, self.cluster.master)
+
+        pa_etc_dir = '/etc/opt/prestoadmin'
+        connectors_dir = pa_etc_dir + '/connectors'
+        self.assert_path_exists(self.cluster.master, connectors_dir)
+
+        coordinator_dir = pa_etc_dir + '/coordinator'
+        self.assert_path_exists(self.cluster.master, coordinator_dir)
+
+        workers_dir = pa_etc_dir + '/workers'
+        self.assert_path_exists(self.cluster.master, workers_dir)

@@ -13,35 +13,24 @@
 FROM jdeathe/centos-ssh:centos-6-1.2.0
 MAINTAINER Christina Wallin <christina.wallin@teradata.com>
 
-# Install Oracle Java
+# Install Oracle Java and presto-admin dependences (already has python 2.6)
 RUN yum upgrade ca-certificates --disablerepo=epel -y && \
     yum update -y && \
-    yum install -y wget && \
+    yum install -y wget bzip2 gcc python-devel tar expect && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" https://edelivery.oracle.com/otn-pub/java/jdk/8u40-b26/jdk-8u40-linux-x64.rpm
 RUN rpm -ivh jdk-8u40-linux-x64.rpm && rm jdk-8u40-linux-x64.rpm
 
-# Install dependencies for presto-admin -- already has python-2.6
-RUN yum -y install bzip2 \
-    gcc \
-    python-devel \
-    tar
-
-RUN yum -y install expect
-
 # Copy Vagrant insecure SSH keys for passwordless SSH between
-# containers and to localhost
-RUN curl -LsSO https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant && \
-  mv vagrant /etc/services-config/ssh/id_rsa
+# containers and to localhost.
+COPY vagrant_insecure_rsa /etc/services-config/ssh/id_rsa
 
 # Modify the ssh-bootstrap script to copy id_rsa to ~/.ssh (the script already makes ~/.ssh
 # and copies authorized_keys)
-RUN printf " if [[ -e /etc/services-config/ssh/id_rsa ]]; then \n \ 
-            cp -f /etc/services-config/ssh/id_rsa \${OPTS_SSH_USER_HOME_DIR}/.ssh/id_rsa\n \
+RUN printf "cp -f /etc/services-config/ssh/id_rsa \${OPTS_SSH_USER_HOME_DIR}/.ssh/id_rsa\n \
 	    chown -R \${OPTS_SSH_USER}:${OPTS_SSH_USER} \${OPTS_SSH_USER_HOME_DIR}/.ssh/id_rsa\n \
 	    chmod 600 \${OPTS_SSH_USER_HOME_DIR}/.ssh/id_rsa\n \
-	    cp -r \${OPTS_SSH_USER_HOME_DIR}/.ssh /root/.ssh\n \
-	  fi\n\
-	  " > /etc/bootstrap-extra
+	    cp -r \${OPTS_SSH_USER_HOME_DIR}/.ssh /root/.ssh\n" > /etc/bootstrap-extra
+
 RUN printf "\nuseradd -ms /bin/bash testuser\necho "testuser:testpass" | chpasswd" >> /etc/bootstrap-extra
 
 RUN awk -v file="/etc/bootstrap-extra" -v lineno=$(($(wc -l < /etc/ssh-bootstrap) - 3)) ' \

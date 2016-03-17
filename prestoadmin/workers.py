@@ -40,7 +40,7 @@ class Worker(Node):
                            'plugin.config-dir': '/etc/presto/catalog',
                            'plugin.dir': '/usr/lib/presto/lib/plugin'},
                           'jvm.config': ['-server',
-                                         '-Xmx2G',
+                                         '-Xmx16G',
                                          '-XX:-UseBiasedLocking',
                                          '-XX:+UseG1GC',
                                          '-XX:+ExplicitGCInvokesConcurrent',
@@ -53,14 +53,13 @@ class Worker(Node):
                                                     '8080',
                                                 'query.max-memory': '50GB',
                                                 'query.max-memory-per-node':
-                                                    '1GB'}
+                                                    '8GB'}
                           }
 
     def _get_conf_dir(self):
         return constants.WORKERS_DIR
 
     def default_config(self, filename):
-        conf = copy.deepcopy(self.DEFAULT_PROPERTIES[filename])
         try:
             conf = copy.deepcopy(self.DEFAULT_PROPERTIES[filename])
         except KeyError:

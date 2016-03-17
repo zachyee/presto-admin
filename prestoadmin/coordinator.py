@@ -37,7 +37,7 @@ class Coordinator(Node):
                            'plugin.config-dir': '/etc/presto/catalog',
                            'plugin.dir': '/usr/lib/presto/lib/plugin'},
                           'jvm.config': ['-server',
-                                         '-Xmx2G',
+                                         '-Xmx16G',
                                          '-XX:-UseBiasedLocking',
                                          '-XX:+UseG1GC',
                                          '-XX:+ExplicitGCInvokesConcurrent',
@@ -51,7 +51,7 @@ class Coordinator(Node):
                               'http-server.http.port': '8080',
                               'node-scheduler.include-coordinator': 'false',
                               'query.max-memory': '50GB',
-                              'query.max-memory-per-node': '1GB'}
+                              'query.max-memory-per-node': '8GB'}
                           }
 
     def _get_conf_dir(self):

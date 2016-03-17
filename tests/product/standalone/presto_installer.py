@@ -21,7 +21,6 @@ import os
 import urllib
 
 import prestoadmin
-from tests.product.constants import LOCAL_RESOURCES_DIR
 
 from tests.base_installer import BaseInstaller
 from tests.docker_cluster import DockerCluster
@@ -32,19 +31,15 @@ from tests.product.topology_installer import TopologyInstaller
 RPM_BASENAME = r'presto.*'
 PRESTO_RPM_GLOB = r'presto*.rpm'
 
-DUMMY_RPM_NAME = 'dummy-rpm.rpm'
+PACKAGE_NAME = 'presto-server-rpm'
 
 
 class StandalonePrestoInstaller(BaseInstaller):
-    def __init__(self, testcase, dummy=False):
-        self.presto_rpm_filename = self._detect_presto_rpm()
-
-        if dummy:
-            self.rpm_dir = LOCAL_RESOURCES_DIR
-            self.rpm_name = DUMMY_RPM_NAME
+    def __init__(self, testcase, rpm_location=None):
+        if rpm_location:
+            self.rpm_dir, self.rpm_name = rpm_location
         else:
-            self.rpm_dir = prestoadmin.main_dir
-            self.rpm_name = self.presto_rpm_filename
+            self.rpm_dir, self.rpm_name = self._detect_presto_rpm()
 
         self.testcase = testcase
 
@@ -86,7 +81,7 @@ class StandalonePrestoInstaller(BaseInstaller):
 
         try:
             check_rpm = cluster.exec_cmd_on_host(
-                container, 'rpm -q presto-server-rpm')
+                container, 'rpm -q %s' % (PACKAGE_NAME,))
             testcase.assertRegexpMatches(
                 check_rpm, RPM_BASENAME + '\n', msg=msg
             )
@@ -111,13 +106,6 @@ class StandalonePrestoInstaller(BaseInstaller):
             cluster.copy_to_host(rpm_path, cluster.master)
             self._check_if_corrupted_rpm(self.rpm_name, cluster)
         except OSError:
-            #
-            # Can't retry downloading the dummy rpm. It's a local resource.
-            # If we've gotten here, we've corrupted it somehow.
-            #
-            self.testcase.assertNotEqual(self.rpm_name, DUMMY_RPM_NAME,
-                                         "Bad dummy rpm!")
-
             print 'Downloading RPM again'
             # try to download the RPM again if it's corrupt (but only once)
             StandalonePrestoInstaller._download_rpm()
@@ -147,28 +135,26 @@ class StandalonePrestoInstaller(BaseInstaller):
         if rpm_names:
             # Choose the last RPM name if you sort the list, since if there
             # are multiple RPMs, the last one is probably the latest
-            return sorted(rpm_names)[-1]
+            rpm_name = sorted(rpm_names)[-1]
         else:
             try:
-                return StandalonePrestoInstaller._download_rpm()
+                rpm_name = StandalonePrestoInstaller._download_rpm()
             except:
                 # retry once
-                return StandalonePrestoInstaller._download_rpm()
+                rpm_name = StandalonePrestoInstaller._download_rpm()
+
+        return prestoadmin.main_dir, rpm_name
 
     @staticmethod
     def _check_if_corrupted_rpm(rpm_name, cluster):
         cluster.exec_cmd_on_host(
-            cluster.master, 'rpm -K --nosignature '
-                            + os.path.join(cluster.mount_dir, rpm_name)
+            cluster.master, 'rpm -K --nosignature ' +
+                            os.path.join(cluster.mount_dir, rpm_name)
         )
 
-    def assert_uninstalled(self, container, dummy=False, msg=None):
-        if dummy:
-            rpm_name = os.path.splitext(DUMMY_RPM_NAME)[0]
-        else:
-            rpm_name = os.path.splitext(self.presto_rpm_filename)[0]
-        failure_msg = 'package %s is not installed' % rpm_name
-        rpm_cmd = 'rpm -q %s' % rpm_name
+    def assert_uninstalled(self, container, msg=None):
+        failure_msg = 'package %s is not installed' % (PACKAGE_NAME,)
+        rpm_cmd = 'rpm -q %s' % (PACKAGE_NAME,)
 
         self.testcase.assertRaisesRegexp(
             OSError,
