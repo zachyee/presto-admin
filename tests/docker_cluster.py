@@ -320,8 +320,11 @@ class DockerCluster(BaseCluster):
                 or not user_output:
             return False
         # check for .ssh being in the right place
-        ssh_output = self.exec_cmd_on_host(host, 'ls /home/app-admin/.ssh')
-        if 'id_rsa' not in ssh_output:
+        try:
+            ssh_output = self.exec_cmd_on_host(host, 'ls /home/app-admin/.ssh')
+            if 'id_rsa' not in ssh_output:
+                return False
+        except OSError:
             return False
         return True
 
@@ -392,15 +395,17 @@ class DockerCluster(BaseCluster):
         return centos_cluster
 
     @staticmethod
-    def _check_for_images(master_image_name, slave_image_name):
+    def _check_for_images(master_image_name, slave_image_name, tag='latest'):
+        master_repotag = '%s:%s' % (master_image_name, tag)
+        slave_repotag = '%s:%s' % (slave_image_name, tag)
         with Client(timeout=180) as client:
             images = client.images()
         has_master_image = False
         has_slave_image = False
         for image in images:
-            if master_image_name in image['RepoTags'][0]:
+            if master_repotag in image['RepoTags']:
                 has_master_image = True
-            if slave_image_name in image['RepoTags'][0]:
+            if slave_repotag in image['RepoTags']:
                 has_slave_image = True
         return has_master_image and has_slave_image
 

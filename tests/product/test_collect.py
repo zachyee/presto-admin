@@ -25,7 +25,6 @@ from prestoadmin.collect import OUTPUT_FILENAME_FOR_LOGS, TMP_PRESTO_DEBUG, \
     PRESTOADMIN_LOG_NAME, OUTPUT_FILENAME_FOR_SYS_INFO
 from prestoadmin.prestoclient import PrestoClient
 from prestoadmin.server import run_sql
-from prestoadmin.util import constants
 from tests.no_hadoop_bare_image_provider import NoHadoopBareImageProvider
 from tests.product.base_product_case import BaseProductTestCase, PrestoError
 from tests.product.standalone.presto_installer import StandalonePrestoInstaller
@@ -65,42 +64,23 @@ class TestCollect(BaseProductTestCase):
         self.assert_path_exists(self.cluster.master, admin_log)
 
     def log_msg(self, actual, expected):
-        msg = '%s != %s' % actual, expected
-
-        # Print node.properties files for coordinator and workers in
-        # presto-admin and presto.
-        filename = 'node.properties'
-        msg += '\n\nCoordinator %s file in presto-admin:\n' % filename
-        coord_properties = os.path.join(constants.COORDINATOR_DIR, filename)
-        msg = self.cluster.exec_cmd_on_host(self.cluster.master,
-                                            'cat %s' % coord_properties)
-        msg += '\n\nWorker %s file in presto-admin:\n' % filename
-        worker_properties = os.path.join(constants.WORKERS_DIR, filename)
-        msg += self.cluster.exec_cmd_on_host(self.cluster.master,
-                                             'cat %s' % worker_properties)
-        msg += '\n\n%s file on presto coordinator:\n' % filename
-        presto_properties = os.path.join(constants.REMOTE_CONF_DIR, filename)
-        msg += self.cluster.exec_cmd_on_host(self.cluster.master,
-                                             'cat %s' % presto_properties)
-        msg += '\n\n%s file on presto slave1:\n' % filename
-        msg += self.cluster.exec_cmd_on_host(self.cluster.slaves[0],
-                                             'cat %s' % presto_properties)
+        msg = '%s != %s' % (actual, expected)
         return msg
 
     @attr('smoketest')
     def test_collect_system_info_basic(self):
         self.setup_cluster(NoHadoopBareImageProvider(),
                            self.STANDALONE_PRESTO_CLUSTER)
-        self.test_basic_system_info()
+        self.run_prestoadmin('server start')
+        actual = self.run_prestoadmin('collect system_info')
+        self.test_basic_system_info(actual)
 
     @nottest
-    def test_basic_system_info(self, coordinator=None, hosts=None):
+    def test_basic_system_info(self, actual, coordinator=None, hosts=None):
         if not coordinator:
             coordinator = self.cluster.internal_master
         if not hosts:
             hosts = self.cluster.all_hosts()
-        self.run_prestoadmin('server start')
-        actual = self.run_prestoadmin('collect system_info')
         expected = 'System info archive created: ' + \
                    OUTPUT_FILENAME_FOR_SYS_INFO + '\n'
         self.assertEqual(expected, actual)
@@ -131,6 +111,28 @@ class TestCollect(BaseProductTestCase):
         self.assert_path_exists(self.cluster.master,
                                 OUTPUT_FILENAME_FOR_SYS_INFO)
 
+    def test_collect_system_info_dash_h_coord_worker(self):
+        self.setup_cluster(NoHadoopBareImageProvider(),
+                           self.STANDALONE_PRESTO_CLUSTER)
+        self.run_prestoadmin('server start')
+        actual = self.run_prestoadmin('collect system_info '
+                                      '-H %(master)s,%(slave1)s')
+        self.test_basic_system_info(actual,
+                                    self.cluster.internal_master,
+                                    [self.cluster.master,
+                                     self.cluster.slaves[0]])
+
+    def test_collect_system_info_dash_x_two_workers(self):
+        self.setup_cluster(NoHadoopBareImageProvider(),
+                           self.STANDALONE_PRESTO_CLUSTER)
+        self.run_prestoadmin('server start')
+        actual = self.run_prestoadmin('collect system_info '
+                                      '-x %(slave2)s,%(slave3)s')
+        self.test_basic_system_info(actual,
+                                    self.cluster.internal_master,
+                                    [self.cluster.master,
+                                     self.cluster.slaves[0]])
+
     def test_system_info_pa_separate_node(self):
         installer = StandalonePrestoInstaller(self)
         self.setup_cluster(NoHadoopBareImageProvider(), self.PA_ONLY_CLUSTER)
@@ -138,7 +140,10 @@ class TestCollect(BaseProductTestCase):
                     "workers": ["slave2", "slave3"]}
         self.upload_topology(topology=topology)
         installer.install(coordinator='slave1')
+        self.run_prestoadmin('server start')
+        actual = self.run_prestoadmin('collect system_info')
         self.test_basic_system_info(
+            actual,
             coordinator=self.cluster.internal_slaves[0],
             hosts=self.cluster.slaves)
 
@@ -294,3 +299,33 @@ class TestCollect(BaseProductTestCase):
                            self.PA_ONLY_CLUSTER)
         self.upload_topology()
         self._assert_no_logs_downloaded()
+
+    def test_collect_logs_multiple_server_logs(self):
+        self.setup_cluster(NoHadoopBareImageProvider(),
+                           self.STANDALONE_PRESTO_CLUSTER)
+        self.run_prestoadmin('server start')
+        self.cluster.write_content_to_host('Stuff that I logged!',
+                                           'var/log/presto/server.log-2',
+                                           self.cluster.master)
+        actual = self.run_prestoadmin('collect logs')
+
+        expected = 'Downloading logs from all the nodes...\n' + \
+                   'logs archive created: ' + OUTPUT_FILENAME_FOR_LOGS + '\n'
+        self.assertLazyMessage(lambda: self.log_msg(actual, expected),
+                               self.assertEqual, actual, expected)
+
+        downloaded_logs_location = path.join(TMP_PRESTO_DEBUG, 'logs')
+        self.assert_path_exists(self.cluster.master,
+                                downloaded_logs_location)
+
+        for host in self.cluster.all_internal_hosts():
+            host_log_location = path.join(downloaded_logs_location,
+                                          host)
+            self.assert_path_exists(self.cluster.master,
+                                    os.path.join(host_log_location,
+                                                 'server.log'))
+
+        master_path = os.path.join(downloaded_logs_location,
+                                   self.cluster.internal_master,)
+        self.assert_path_exists(self.cluster.master,
+                                os.path.join(master_path, 'server.log-2'))

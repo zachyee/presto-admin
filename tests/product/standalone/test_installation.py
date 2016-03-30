@@ -84,13 +84,13 @@ class TestInstallation(BaseProductTestCase):
         self.assertRaisesRegexp(
             OSError,
             r'IOError: \[Errno 2\] No such file or directory: '
-            r'\'/opt/prestoadmin-1.2-py2-none-any.whl\'',
+            r'\'/opt/prestoadmin-.*-py2-none-any.whl\'',
             self.cluster.run_script_on_host,
             script,
             self.cluster.master
         )
 
-    @attr('smoketest')
+    @attr('smoketest', 'offline_installer')
     @docker_only
     def test_install_on_wrong_os_offline_installer(self):
         image = 'ubuntu'
