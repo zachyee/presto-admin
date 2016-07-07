@@ -40,28 +40,110 @@ class TestInstall(BaseUnitCase):
 
     def setUp(self):
         self.remove_runs_once_flag(server.status)
+        self.remove_runs_once_flag(server.install)
         self.maxDiff = None
         super(TestInstall, self).setUp(capture_output=True)
 
+    @patch('prestoadmin.server._download_rpm')
+    @patch('prestoadmin.server._find_downloaded_rpm')
     @patch('prestoadmin.server.package.check_if_valid_rpm')
     @patch('prestoadmin.server.execute')
-    def test_install_server(self, mock_execute, mock_check_rpm):
-        local_path = "/any/path/rpm"
-        server.install(local_path)
-        mock_check_rpm.assert_called_with(local_path)
+    def test_install_server_local_path(self, mock_execute, mock_check_rpm,
+                                       mock_find_downloaded_rpm, mock_download_rpm):
+        rpm_specifier = "/any/path/rpm"
+        mock_find_downloaded_rpm.return_value = None
+        mock_download_rpm.return_value = None
+        server.install(rpm_specifier)
+        mock_check_rpm.assert_called_with(rpm_specifier)
         mock_execute.assert_called_with(server.deploy_install_configure,
-                                        local_path, hosts=get_host_list())
+                                        rpm_specifier, hosts=get_host_list())
+
+    @patch('prestoadmin.server._check_good_response_status')
+    @patch('prestoadmin.server._download_rpm')
+    @patch('prestoadmin.server._find_downloaded_rpm')
+    @patch('prestoadmin.server.package.check_if_valid_rpm')
+    @patch('prestoadmin.server.execute')
+    def test_install_server_version_already_downloaded(self, mock_execute, mock_check_rpm,
+                                                       mock_find_downloaded_rpm, mock_download_rpm,
+                                                       mock_check_response_status):
+        rpm_specifier = "0.148"
+        downloaded_rpm = '/path/to/downloaded/0.148/rpm'
+        mock_find_downloaded_rpm.return_value = downloaded_rpm
+        mock_check_response_status.return_value = True
+        server.install(rpm_specifier)
+        mock_check_response_status.assert_called_with(200)
+        mock_download_rpm.assert_not_called()
+        mock_check_rpm.assert_called_with(downloaded_rpm)
+        mock_execute.assert_called_with(server.deploy_install_configure,
+                                        downloaded_rpm, hosts=get_host_list())
+
+    @patch('prestoadmin.server._check_good_response_status')
+    @patch('prestoadmin.server._download_rpm')
+    @patch('prestoadmin.server._find_downloaded_rpm')
+    @patch('prestoadmin.server.package.check_if_valid_rpm')
+    @patch('prestoadmin.server.execute')
+    def test_install_server_version_not_downloaded(self, mock_execute, mock_check_rpm,
+                                                   mock_find_downloaded_rpm, mock_download_rpm,
+                                                   mock_check_response_status):
+        rpm_specifier = "0.148"
+        downloaded_rpm = '/path/to/downloaded/0.148/rpm'
+        mock_find_downloaded_rpm.return_value = None
+        mock_download_rpm.return_value = downloaded_rpm
+        mock_check_response_status.return_value = True
+        server.install(rpm_specifier)
+        mock_check_response_status.assert_called_with(200)
+        mock_check_rpm.assert_called_with(downloaded_rpm)
+        mock_execute.assert_called_with(server.deploy_install_configure,
+                                        downloaded_rpm, hosts=get_host_list())
+
+    @patch('prestoadmin.server._check_good_response_status')
+    @patch('prestoadmin.server._download_rpm')
+    @patch('prestoadmin.server._find_downloaded_rpm')
+    @patch('prestoadmin.server.package.check_if_valid_rpm')
+    @patch('prestoadmin.server.execute')
+    def test_install_server_release_already_downloaded(self, mock_execute, mock_check_rpm,
+                                                       mock_find_downloaded_rpm, mock_download_rpm,
+                                                       mock_check_response_status):
+        rpm_specifier = "release"
+        downloaded_rpm = '/path/to/downloaded/release/rpm'
+        mock_find_downloaded_rpm.return_value = downloaded_rpm
+        mock_check_response_status.return_value = True
+        server.install(rpm_specifier)
+        mock_check_response_status.assert_called_with(200)
+        mock_download_rpm.assert_not_called()
+        mock_check_rpm.assert_called_with(downloaded_rpm)
+        mock_execute.assert_called_with(server.deploy_install_configure,
+                                        downloaded_rpm, hosts=get_host_list())
+
+    @patch('prestoadmin.server._check_good_response_status')
+    @patch('prestoadmin.server._download_rpm')
+    @patch('prestoadmin.server._find_downloaded_rpm')
+    @patch('prestoadmin.server.package.check_if_valid_rpm')
+    @patch('prestoadmin.server.execute')
+    def test_install_server_release_download(self, mock_execute, mock_check_rpm,
+                                             mock_find_downloaded_rpm, mock_download_rpm,
+                                             mock_check_response_status):
+        rpm_specifier = "release"
+        downloaded_rpm = '/path/to/downloaded/release/rpm'
+        mock_find_downloaded_rpm.return_value = None
+        mock_download_rpm.return_value = downloaded_rpm
+        mock_check_response_status.return_value = True
+        server.install(rpm_specifier)
+        mock_check_response_status.assert_called_with(200)
+        mock_check_rpm.assert_called_with(downloaded_rpm)
+        mock_execute.assert_called_with(server.deploy_install_configure,
+                                        downloaded_rpm, hosts=get_host_list())
 
     @patch('prestoadmin.server.sudo')
     @patch('prestoadmin.server.package.deploy_install')
     @patch('prestoadmin.server.update_configs')
     def test_deploy_install_configure(self, mock_update, mock_install,
                                       mock_sudo):
-        local_path = "/any/path/rpm"
+        rpm_specifier = "/any/path/rpm"
         mock_sudo.side_effect = self.mock_fail_then_succeed()
 
-        server.deploy_install_configure(local_path)
-        mock_install.assert_called_with(local_path)
+        server.deploy_install_configure(rpm_specifier)
+        mock_install.assert_called_with(rpm_specifier)
         self.assertTrue(mock_update.called)
         mock_sudo.assert_called_with('getent passwd presto', quiet=True)
 
