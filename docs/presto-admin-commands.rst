@@ -392,9 +392,14 @@ server install
 **************
 ::
 
-    presto-admin server install <local_path> [--nodeps]
+    presto-admin server install <rpm_specifier> [--nodeps]
 
-This command copies the presto-server rpm from ``local_path`` to all the nodes in the cluster, installs it, deploys the general presto configuration along with tpch connector configuration. The ``local_path`` should be accessible by ``presto-admin``.
+This command takes in a parameter ``rpm_specifier``, which must be a string describing the presto-server rpm to be used.
+The string can be a local path to a previously downloaded rpm. The local path should be accessible by ``presto-admin``.
+It may also be a version number (in the form X.Y or X.Y.Z when Z is applicable), a url, or 'release' (for the most recent release). In these cases, this command will attempt to find a local presto-server rpm that matches the requested version. If no match is found, it will attempt to download the rpm.
+This command fails if it cannot find or download the requested presto-server rpm.
+
+After successfully finding the rpm, this command copies the presto-server rpm to all the nodes in the cluster, installs it, deploys the general presto configuration along with tpch connector configuration.
 The topology used to configure the nodes are obtained from ``/etc/opt/prestoadmin/config.json``. See :ref:`presto-admin-configuration-label` on how to configure your cluster using config.json. If this file is missing, then the command prompts for user input to get the topology information.
 
 The general configurations for Presto's coordinator and workers are taken from the directories ``/etc/opt/prestoadmin/coordinator`` and ``/etc/opt/prestoadmin/workers`` respectively. If these directories or any required configuration files are absent when you run ``server install``, a default configuration will be deployed. See `configuration deploy`_ for details.
@@ -411,6 +416,10 @@ Example
 ::
 
     sudo ./presto-admin server install /tmp/presto.rpm
+    sudo ./presto-admin server install 0.144.6
+    sudo ./presto-admin server install 0.148
+    sudo ./presto-admin server install http://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server-rpm/0.150/presto-server-rpm-0.150.rpm
+    sudo ./presto-admin server install release
 
 **Standalone RPM Install**
 

@@ -48,15 +48,26 @@ class StandalonePrestoInstaller(BaseInstaller):
                 TopologyInstaller]
 
     def install(self, extra_configs=None, coordinator=None,
-                pa_raise_error=True):
+                pa_raise_error=True, rpm_specifier=None):
         cluster = self.testcase.cluster
-        rpm_name = self.copy_presto_rpm_to_master(cluster=cluster)
 
         self.testcase.write_test_configs(cluster, extra_configs, coordinator)
-        cmd_output = self.testcase.run_prestoadmin(
-            'server install ' + os.path.join(cluster.mount_dir, rpm_name),
-            cluster=cluster, raise_error=pa_raise_error
-        )
+
+        if not rpm_specifier:
+            if not self.rpm_name:
+                OSError(1, 'No presto rpm found to install')
+
+            rpm_name = self.copy_presto_rpm_to_master(cluster=cluster)
+
+            cmd_output = self.testcase.run_prestoadmin(
+                'server install ' + os.path.join(cluster.mount_dir, rpm_name),
+                cluster=cluster, raise_error=pa_raise_error
+            )
+        else:
+            cmd_output = self.testcase.run_prestoadmin(
+                'server install ' + rpm_specifier,
+                cluster=cluster, raise_error=pa_raise_error
+            )
 
         return cmd_output
 
@@ -100,6 +111,9 @@ class StandalonePrestoInstaller(BaseInstaller):
         if not cluster:
             cluster = self.testcase.cluster
 
+        if not self.rpm_name:
+            OSError(1, 'No presto rpm found to copy to master')
+
         rpm_path = os.path.join(self.rpm_dir, self.rpm_name)
         cluster.copy_to_host(rpm_path, cluster.master)
         self._check_if_corrupted_rpm(self.rpm_name, cluster)
@@ -118,7 +132,7 @@ class StandalonePrestoInstaller(BaseInstaller):
             # are multiple RPMs, the last one is probably the latest
             rpm_name = sorted(rpm_names)[-1]
         else:
-            raise OSError(1, 'Presto RPM not detected.')
+            return None, None
 
         return prestoadmin.main_dir, rpm_name
 

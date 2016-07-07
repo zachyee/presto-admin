@@ -13,11 +13,14 @@
 # limitations under the License.
 
 """
-Module for installing, monitoring and controlling presto server
+Module for installing, monitoring, and controlling presto server
 using presto-admin
 """
+import cgi
 import logging
+import re
 import sys
+import urllib2
 
 from fabric.api import task, sudo, env
 from fabric.context_managers import settings, hide
@@ -29,6 +32,7 @@ from retrying import retry
 
 from prestoadmin import configure_cmds
 from prestoadmin import connector
+from prestoadmin import main_dir
 from prestoadmin import package
 from prestoadmin.util.version_util import VersionRange, VersionRangeList, \
     split_version, strip_tag
@@ -82,11 +86,191 @@ EXTERNAL_IP_SQL = 'select url_extract_host(http_uri) from ' \
 CONNECTOR_INFO_SQL = 'select catalog_name from system.metadata.catalogs'
 _LOGGER = logging.getLogger(__name__)
 
+DOWNLOAD_DIRECTORY = main_dir
+DEFAULT_RPM_NAME = 'presto-server-rpm.rpm'
+
+
+def _find_or_download_most_recent_presto_rpm():
+    newest_rpm_release = 'https://repository.sonatype.org/service/local/artifact/maven' \
+                         '/content?r=central-proxy&g=com.facebook.presto' \
+                         '&a=presto-server-rpm&e=rpm&v=RELEASE'
+    return _find_or_download_rpm(newest_rpm_release)
+
+
+def _check_if_valid_version(rpm_version):
+    return re.match('^[0-9]+(\.[0-9]+){1,2}[tf]?$', rpm_version)
+
+
+def _check_good_response_status(response_status):
+    return response_status == 200
+
+
+def _get_content_length(url_response):
+    try:
+        headers = url_response.info()
+        return int(headers['Content-Length'])
+    except (KeyError, ValueError):
+        return None
+
+
+def _get_download_file_name(url_response, version=None):
+    try:
+        headers = url_response.info()
+        content_disposition = headers['Content-Disposition']
+        values, params = cgi.parse_header(content_disposition)
+        return params['filename']
+    except KeyError:
+        if not version:
+            return DEFAULT_RPM_NAME
+        else:
+            return 'presto-server-rpm-' + version + '.rpm'
+
+
+def _print_download_status(bytes_read, total_bytes):
+    percent = float(bytes_read) / total_bytes
+    percent = round(percent * 100, 2)
+    print 'Downloaded %d of %d bytes. (%0.2f%%)' % \
+          (bytes_read, total_bytes, percent)
+
+
+def _find_downloaded_rpm(download_file_name):
+    download_file_path = os.path.join(DOWNLOAD_DIRECTORY, download_file_name)
+
+    if os.path.isfile(download_file_path):
+        print 'Found rpm at: %s' % download_file_path
+        return download_file_path
+    else:
+        return None
+
+
+def _download_rpm(url_response, download_file_path):
+    content_length = _get_content_length(url_response)
+    print 'Downloading rpm from %s.\n' \
+          'This can take a few minutes.' % url_response.geturl()
+
+    with open(download_file_path, 'wb') as local_file:
+        bytes_read = 0
+        block_size = 16 * 1024 * 1024
+        while True:
+            download_buffer = url_response.read(block_size)
+            if not download_buffer:
+                break
+            bytes_read += len(download_buffer)
+            local_file.write(download_buffer)
+            if content_length:
+                _print_download_status(bytes_read, content_length)
+        print "Downloaded %d bytes." % bytes_read
+
+    print 'Rpm downloaded to: %s' % download_file_path
+    return download_file_path
+
+
+def _find_or_download_rpm(url, version=None):
+    """
+    Args:
+        url:      The url of the presto rpm to be downloaded.
+        version:  An optional version number.
+                  If the server doesn't respond with the file name that is being
+                  requested, this allows the downloaded file to have the correct
+                  version attached to its name (presto-server-rpm-'version'.rpm)
+                  rather than the default name
+
+    If downloading the presto rpm at the given url would overwrite an existing rpm,
+    this function returns the path to the existing rpm. However, if the rpm that
+    would be downloaded takes the default rpm name, it will overwrite the existing
+    rpm because there is no way to know if the default rpm name is of the same version
+    as the requested rpm.
+
+    Returns:
+        Upon success, the path to the downloaded or found presto rpm
+        Upon failure, None
+    """
+    try:
+        url_response = urllib2.urlopen(url)
+    except ValueError:
+        return None
+
+    if not _check_good_response_status(url_response.getcode()):
+        return None
+
+    download_file_name = _get_download_file_name(url_response, version)
+    download_file_path = os.path.join(DOWNLOAD_DIRECTORY, download_file_name)
+
+    downloaded_rpm_path = _find_downloaded_rpm(download_file_name)
+    if downloaded_rpm_path and download_file_name != DEFAULT_RPM_NAME:
+        return downloaded_rpm_path
+
+    return _download_rpm(url_response, download_file_path)
+
+
+def _find_or_download_rpm_version_facebook(rpm_version):
+    rpm_version_fb = rpm_version[:-1]
+    download_url = 'http://search.maven.org/remotecontent?filepath=com/facebook/presto/' \
+                   'presto-server-rpm/' + rpm_version_fb + '/presto-server-rpm-' + \
+                   rpm_version_fb + '.rpm'
+    return _find_or_download_rpm(download_url, rpm_version_fb)
+
+
+def _find_or_download_rpm_version_teradata(rpm_version):
+    abort('Download for teradata presto rpms is not currently supported.\n'
+          'Try again after downloading the rpm and specifying the local path to the rpm')
+
+
+def _find_or_download_rpm_version(rpm_version):
+    """
+    Attempt to find or download the given rpm version.
+
+    Default to using Facebook rpm if 'f'aceboook and 't'eradata
+    are not specified in rpm_version.
+    """
+    if not _check_if_valid_version(rpm_version):
+        return None
+
+    if rpm_version[-1] != 'f' and rpm_version[-1] != 't':
+        rpm_version += 'f'
+        if not _check_if_valid_version(rpm_version):
+            return None
+
+    if rpm_version[-1] == 'f':
+        download_rpm = _find_or_download_rpm_version_facebook(rpm_version)
+    elif rpm_version[-1] == 't':
+        download_rpm = _find_or_download_rpm_version_teradata(rpm_version)
+    else:
+        return None
+
+    return download_rpm
+
+
+def get_path_to_presto_rpm(rpm_specifier):
+    """
+    This function will attempt to find the rpm at the given location by rpm_specifier.
+    It will check if rpm_specifier is 'release', a version number, or a url.
+    In these cases, this function will download the rpm, if necessary, and return a path
+    to the rpm.
+
+    If rpm_specifier is none of the above, then it is assumed that it is a local path
+    and the function simply returns rpm_specifier.
+    """
+    if rpm_specifier == "release":
+        path_to_release_rpm = _find_or_download_most_recent_presto_rpm()
+        if path_to_release_rpm:
+            return path_to_release_rpm
+
+    path_to_version_rpm = _find_or_download_rpm_version(rpm_specifier)
+    if path_to_version_rpm:
+        return path_to_version_rpm
+
+    path_to_url_rpm = _find_or_download_rpm(rpm_specifier)
+    if path_to_url_rpm:
+        return path_to_url_rpm
+
+    return rpm_specifier
+
 
 @task
 @runs_once
 @requires_config(StandaloneConfig)
-def install(local_path):
+def install(rpm_specifier):
     """
     Copy and install the presto-server rpm to all the nodes in the cluster and
     configure the nodes.
@@ -104,15 +288,28 @@ def install(local_path):
     jvm.config
 
     Parameters:
-        local_path -            Absolute path to the presto rpm to be installed
+        rpm_specifier - String specifying location of presto rpm to copy and install
+                        to nodes in the cluster. The string can specify a presto rpm
+                        in the following ways:
+                        
+                        1.  Path to a local copy
+                        2.  Url to download
+                        3.  Version number to download
+                        4.  'release' to download the most recent release
 
-        --nodeps -              (optional) Flag to indicate if server install
-                                should ignore checking Presto rpm package
-                                dependencies. Equivalent to adding --nodeps
-                                flag to rpm -i.
+                        Before downloading an rpm, install will attempt to find a local
+                        copy with a matching version number to the requested rpm. If such
+                        a match is found, it will use the local copy instead of downloading
+                        the rpm again.
+
+        --nodeps -      (optional) Flag to indicate if server install
+                        should ignore checking Presto rpm package
+                        dependencies. Equivalent to adding --nodeps
+                        flag to rpm -i.
     """
-    package.check_if_valid_rpm(local_path)
-    return execute(deploy_install_configure, local_path, hosts=get_host_list())
+    path_to_rpm = get_path_to_presto_rpm(rpm_specifier)
+    package.check_if_valid_rpm(path_to_rpm)
+    return execute(deploy_install_configure, path_to_rpm, hosts=get_host_list())
 
 
 def deploy_install_configure(local_path):
