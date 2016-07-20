@@ -73,7 +73,7 @@ lint:
 	flake8 prestoadmin packaging tests
 
 presto-server-rpm.rpm:
-	wget 'https://repository.sonatype.org/service/local/artifact/maven/content?r=central-proxy&g=com.facebook.presto&a=presto-server-rpm&e=rpm&v=RELEASE' -O $@
+	wget 'http://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server-rpm/0.148/presto-server-rpm-0.148.rpm' -O $@
 
 smoke: clean-test docker-images
 	tox -e py26 -- -a smoketest,'!quarantine'
