@@ -24,6 +24,7 @@ except ImportError:
     from distutils.core import setup
 
 from packaging.bdist_prestoadmin import bdist_prestoadmin
+from release import release
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -50,7 +51,8 @@ requirements = [
     'wheel==0.23.0',
     'flake8==2.5.4',
     'tox==1.9.2',
-    'retrying==1.3.3'
+    'retrying==1.3.3',
+    'GitPython==2.0.8'
 ]
 
 test_requirements = [
@@ -109,7 +111,7 @@ setup(
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: APLv2 License',
+        'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.6',
@@ -117,6 +119,7 @@ setup(
     ],
     test_suite='tests',
     tests_require=test_requirements,
-    cmdclass={'bdist_prestoadmin': bdist_prestoadmin},
+    cmdclass={'bdist_prestoadmin': bdist_prestoadmin,
+              'release': release},
     entry_points={'console_scripts': ['presto-admin = prestoadmin.main:main']}
 )
