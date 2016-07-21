@@ -1,8 +1,11 @@
 include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
+include Makefile
 include README.md
+include release.py
 
+recursive-include packaging *
 recursive-include tests *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
