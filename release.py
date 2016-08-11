@@ -27,7 +27,7 @@ try:
 except ImportError:
     from distutils.core import Command
 
-GITHUB_REPOSITORY_API = 'https://api.github.com/repos/zachyee/presto-admin'
+GITHUB_REPOSITORY_API_PATH = 'https://api.github.com/repos/zachyee/presto-admin'
 CURRENT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -334,7 +334,7 @@ class PypiReleaser:
             return False
 
     def _check_pypi_setup(self):
-            command = ['python', 'setup.py', 'register', '-r', 'pypi']
+            command = ['python', 'setup.py', 'register', '-r', 'pypitest']
             if self._run_pypi_command(command):
                 print 'Setup correctly for Pypi release'
                 return
@@ -342,7 +342,7 @@ class PypiReleaser:
                 exit('Not setup correctly for Pypi release')
 
     def _submit_pypi_release(self):
-        command = ['python', 'setup.py', 'bdist_wheel', 'upload', '-r', 'pypi']
+        command = ['python', 'setup.py', 'bdist_wheel', 'upload', '-r', 'pypitest']
         if self._run_pypi_command(command):
             print 'Released successfully to Pypi'
             return
