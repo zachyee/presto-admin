@@ -1,0 +1,1830 @@
+{
+  "version": 1,
+  "command": null,
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "duration": 52.913361,
+  "height": 62,
+  "width": 204,
+  "stdout": [
+    [
+      0.038055,
+      "\u001b]0;zachyee@zachyee-VirtualBox: ~/workspace/zach/presto-admin\u0007\u001b[01;32mzachyee@zachyee-VirtualBox\u001b[00m:\u001b[01;34m~/workspace/zach/presto-admin\u001b[00m$ "
+    ],
+    [
+      1.245609,
+      "m"
+    ],
+    [
+      0.159494,
+      "k"
+    ],
+    [
+      0.134747,
+      "v"
+    ],
+    [
+      0.159742,
+      "i"
+    ],
+    [
+      0.120283,
+      "r"
+    ],
+    [
+      0.345008,
+      "t"
+    ],
+    [
+      0.087667,
+      "u"
+    ],
+    [
+      0.140589,
+      "a"
+    ],
+    [
+      0.086839,
+      "l"
+    ],
+    [
+      0.16417,
+      "env "
+    ],
+    [
+      1.124201,
+      "d"
+    ],
+    [
+      0.219021,
+      "e"
+    ],
+    [
+      0.433599,
+      "\b\u001b[K"
+    ],
+    [
+      0.152341,
+      "\b\u001b[K"
+    ],
+    [
+      0.122217,
+      "p"
+    ],
+    [
+      0.137579,
+      "a"
+    ],
+    [
+      0.11453,
+      "-"
+    ],
+    [
+      0.176595,
+      "r"
+    ],
+    [
+      0.075208,
+      "e"
+    ],
+    [
+      0.101955,
+      "l"
+    ],
+    [
+      0.072261,
+      "e"
+    ],
+    [
+      0.131254,
+      "a"
+    ],
+    [
+      0.05776,
+      "s"
+    ],
+    [
+      0.141082,
+      "e"
+    ],
+    [
+      0.250426,
+      "\r\n"
+    ],
+    [
+      0.199064,
+      "New python executable in pa-release/bin/python\r\n"
+    ],
+    [
+      0.018175,
+      "Installing setuptools, pip..."
+    ],
+    [
+      1.106106,
+      "done.\r\n"
+    ],
+    [
+      0.460083,
+      "(pa-release)\u001b]0;zachyee@zachyee-VirtualBox: ~/workspace/zach/presto-admin\u0007\u001b[01;32mzachyee@zachyee-VirtualBox\u001b[00m:\u001b[01;34m~/workspace/zach/presto-admin\u001b[00m$ "
+    ],
+    [
+      2.317874,
+      "p"
+    ],
+    [
+      0.162802,
+      "y"
+    ],
+    [
+      0.21501,
+      "t"
+    ],
+    [
+      0.070268,
+      "h"
+    ],
+    [
+      0.077705,
+      "o"
+    ],
+    [
+      0.119685,
+      "n"
+    ],
+    [
+      0.078815,
+      " "
+    ],
+    [
+      0.232274,
+      "s"
+    ],
+    [
+      0.146844,
+      "e"
+    ],
+    [
+      0.122674,
+      "t"
+    ],
+    [
+      0.141604,
+      "u"
+    ],
+    [
+      0.080578,
+      "p"
+    ],
+    [
+      0.257386,
+      "."
+    ],
+    [
+      0.193119,
+      "p"
+    ],
+    [
+      0.071651,
+      "y"
+    ],
+    [
+      0.12762,
+      " "
+    ],
+    [
+      0.166989,
+      "d"
+    ],
+    [
+      0.129559,
+      "e"
+    ],
+    [
+      0.173822,
+      "v"
+    ],
+    [
+      0.113585,
+      "e"
+    ],
+    [
+      0.105117,
+      "l"
+    ],
+    [
+      0.177421,
+      "o"
+    ],
+    [
+      0.073748,
+      "p"
+    ],
+    [
+      0.175853,
+      "\r\n"
+    ],
+    [
+      0.20931,
+      "running develop"
+    ],
+    [
+      4.3e-05,
+      "\r\n"
+    ],
+    [
+      0.006816,
+      "running egg_info"
+    ],
+    [
+      4.4e-05,
+      "\r\n"
+    ],
+    [
+      8.6e-05,
+      "creating prestoadmin.egg-info"
+    ],
+    [
+      3.5e-05,
+      "\r\n"
+    ],
+    [
+      0.000177,
+      "writing requirements to prestoadmin.egg-info/requires.txt"
+    ],
+    [
+      2.1e-05,
+      "\r\n"
+    ],
+    [
+      8.7e-05,
+      "writing prestoadmin.egg-info/PKG-INFO"
+    ],
+    [
+      3.3e-05,
+      "\r\n"
+    ],
+    [
+      0.000211,
+      "writing top-level names to prestoadmin.egg-info/top_level.txt"
+    ],
+    [
+      1.7e-05,
+      "\r\n"
+    ],
+    [
+      7.8e-05,
+      "writing dependency_links to prestoadmin.egg-info/dependency_links.txt"
+    ],
+    [
+      1.8e-05,
+      "\r\n"
+    ],
+    [
+      0.000133,
+      "writing entry points to prestoadmin.egg-info/entry_points.txt"
+    ],
+    [
+      3.9e-05,
+      "\r\n"
+    ],
+    [
+      0.000118,
+      "writing manifest file 'prestoadmin.egg-info/SOURCES.txt'"
+    ],
+    [
+      1.6e-05,
+      "\r\n"
+    ],
+    [
+      0.005856,
+      "reading manifest file 'prestoadmin.egg-info/SOURCES.txt'"
+    ],
+    [
+      4.8e-05,
+      "\r\n"
+    ],
+    [
+      0.000637,
+      "reading manifest template 'MANIFEST.in'"
+    ],
+    [
+      4e-05,
+      "\r\n"
+    ],
+    [
+      0.002396,
+      "warning: no previously-included files matching '__pycache__' found under directory '*'"
+    ],
+    [
+      4.9e-05,
+      "\r\n"
+    ],
+    [
+      0.000659,
+      "warning: no previously-included files matching '*.py[co]' found under directory '*'"
+    ],
+    [
+      4.5e-05,
+      "\r\n"
+    ],
+    [
+      0.001701,
+      "warning: no files found matching 'make.bat' under directory 'docs'"
+    ],
+    [
+      3.7e-05,
+      "\r\n"
+    ],
+    [
+      0.002297,
+      "writing manifest file 'prestoadmin.egg-info/SOURCES.txt'"
+    ],
+    [
+      3.6e-05,
+      "\r\n"
+    ],
+    [
+      0.001083,
+      "running build_ext"
+    ],
+    [
+      3.7e-05,
+      "\r\n"
+    ],
+    [
+      0.000112,
+      "Creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/prestoadmin.egg-link (link to .)"
+    ],
+    [
+      3.2e-05,
+      "\r\n"
+    ],
+    [
+      0.000215,
+      "Adding prestoadmin 0.0.61 to easy-install.pth file"
+    ],
+    [
+      3.3e-05,
+      "\r\n"
+    ],
+    [
+      0.000621,
+      "Installing presto-admin script to /home/zachyee/.virtualenvs/pa-release/bin"
+    ],
+    [
+      3.5e-05,
+      "\r\n"
+    ],
+    [
+      0.000133,
+      "\r\n"
+    ],
+    [
+      3.2e-05,
+      "Installed /home/zachyee/workspace/zach/presto-admin"
+    ],
+    [
+      2.9e-05,
+      "\r\n"
+    ],
+    [
+      0.000146,
+      "Processing dependencies for prestoadmin==0.0.61"
+    ],
+    [
+      3.2e-05,
+      "\r\n"
+    ],
+    [
+      0.002385,
+      "Searching for retrying==1.3.3"
+    ],
+    [
+      2.6e-05,
+      "\r\n"
+    ],
+    [
+      0.000112,
+      "Reading https://pypi.python.org/simple/retrying/"
+    ],
+    [
+      1.9e-05,
+      "\r\n"
+    ],
+    [
+      0.383157,
+      "Best match: retrying 1.3.3"
+    ],
+    [
+      7.3e-05,
+      "\r\n"
+    ],
+    [
+      0.0001,
+      "Downloading https://pypi.python.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz#md5=2a126aeef8b21324ecdeac15ff46ef17"
+    ],
+    [
+      3.3e-05,
+      "\r\n"
+    ],
+    [
+      0.342898,
+      "Processing retrying-1.3.3.tar.gz"
+    ],
+    [
+      0.000177,
+      "\r\n"
+    ],
+    [
+      0.013937,
+      "Writing /tmp/easy_install-Y4DPgS/retrying-1.3.3/setup.cfg"
+    ],
+    [
+      8.7e-05,
+      "\r\n"
+    ],
+    [
+      0.000232,
+      "Running retrying-1.3.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-Y4DPgS/retrying-1.3.3/egg-dist-tmp-o6QG_d"
+    ],
+    [
+      5.4e-05,
+      "\r\n"
+    ],
+    [
+      0.066871,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.002958,
+      "Moving retrying-1.3.3-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.001967,
+      "Adding retrying 1.3.3 to easy-install.pth file\r\n"
+    ],
+    [
+      0.001019,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/retrying-1.3.3-py2.7.egg\r\n"
+    ],
+    [
+      0.001029,
+      "Searching for tox==1.9.2\r\nReading https://pypi.python.org/simple/tox/\r\n"
+    ],
+    [
+      0.381961,
+      "Best match: tox 1.9.2\r\n"
+    ],
+    [
+      0.000121,
+      "Downloading https://pypi.python.org/packages/39/4b/eac6e23df2d2987a66b29942a6b641048c2bd484dc7251612262ea2fabc0/tox-1.9.2.tar.gz#md5=f4db4d6a82d6a651e457ba55ef370258\r\n"
+    ],
+    [
+      0.503263,
+      "Processing tox-1.9.2.tar.gz\r\n"
+    ],
+    [
+      0.038253,
+      "Writing /tmp/easy_install-e1Bi_7/tox-1.9.2/setup.cfg\r\nRunning tox-1.9.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-e1Bi_7/tox-1.9.2/egg-dist-tmp-gQCJRZ\r\n"
+    ],
+    [
+      0.069535,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.000973,
+      "tox._cmdline: module references __file__\r\ntox._pytestplugin: module references __file__\r\ntox.interpreters: module MAY be using inspect.getsource\r\n"
+    ],
+    [
+      0.000382,
+      "tox._config: module references __file__\r\n"
+    ],
+    [
+      0.015098,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/tox-1.9.2-py2.7.egg\r\n"
+    ],
+    [
+      6e-05,
+      "Extracting tox-1.9.2-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.025934,
+      "Adding tox 1.9.2 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002616,
+      "Installing tox script to /home/zachyee/.virtualenvs/pa-release/bin\r\nInstalling tox-quickstart script to /home/zachyee/.virtualenvs/pa-release/bin\r\n\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/tox-1.9.2-py2.7.egg\r\n"
+    ],
+    [
+      0.002185,
+      "Searching for flake8==2.5.4\r\nReading https://pypi.python.org/simple/flake8/\r\n"
+    ],
+    [
+      0.468575,
+      "Best match: flake8 2.5.4\r\nDownloading https://pypi.python.org/packages/60/4a/7b0ac4920af5673380b7079ba2f7580a8645790c7718881082c0d918b8b4/flake8-2.5.4.tar.gz#md5=a4585b3569b95c3f66acb8294a7f06ef\r\n"
+    ],
+    [
+      0.495286,
+      "Processing flake8-2.5.4.tar.gz\r\n"
+    ],
+    [
+      0.016195,
+      "Writing /tmp/easy_install-XZvVru/flake8-2.5.4/setup.cfg\r\n"
+    ],
+    [
+      7.6e-05,
+      "Running flake8-2.5.4/setup.py -q bdist_egg --dist-dir /tmp/easy_install-XZvVru/flake8-2.5.4/egg-dist-tmp-r2iRjC\r\n"
+    ],
+    [
+      0.053214,
+      "zip_safe flag not set; analyzing archive contents..."
+    ],
+    [
+      7.2e-05,
+      "\r\n"
+    ],
+    [
+      0.001946,
+      "flake8.reporter: module references __file__\r\n"
+    ],
+    [
+      0.00103,
+      "flake8.tests._test_warnings: module references __file__\r\nflake8.tests.test_integration: module references __file__\r\n"
+    ],
+    [
+      0.02112,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/flake8-2.5.4-py2.7.egg\r\nExtracting flake8-2.5.4-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.023798,
+      "Adding flake8 2.5.4 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002624,
+      "Installing flake8 script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      0.000128,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/flake8-2.5.4-py2.7.egg\r\n"
+    ],
+    [
+      0.004105,
+      "Searching for wheel==0.23.0\r\nReading https://pypi.python.org/simple/wheel/\r\n"
+    ],
+    [
+      0.478319,
+      "Best match: wheel 0.23.0\r\nDownloading https://pypi.python.org/packages/24/dc/2b7134bce04139b67727bfc441ef77e8558df07103c12275e3617ffe6c57/wheel-0.23.0.tar.gz#md5=273374d28127b821d61cdfe56e7c35dd\r\n"
+    ],
+    [
+      0.70265,
+      "Processing wheel-0.23.0.tar.gz\r\n"
+    ],
+    [
+      0.023131,
+      "Writing /tmp/easy_install-SxdnNe/wheel-0.23.0/setup.cfg\r\n"
+    ],
+    [
+      0.000179,
+      "Running wheel-0.23.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-SxdnNe/wheel-0.23.0/egg-dist-tmp-A0mrHs\r\n"
+    ],
+    [
+      0.036422,
+      "no previously-included directories found matching 'wheel/test/*/dist'\r\n"
+    ],
+    [
+      0.000153,
+      "no previously-included directories found matching 'wheel/test/*/build'\r\n"
+    ],
+    [
+      0.108244,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/wheel-0.23.0-py2.7.egg"
+    ],
+    [
+      0.000125,
+      "\r\nExtracting wheel-0.23.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.040661,
+      "Adding wheel 0.23.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002242,
+      "Installing wheel script to /home/zachyee/.virtualenvs/pa-release/bin\r\nInstalling wininst2wheel script to /home/zachyee/.virtualenvs/pa-release/bin\r\nInstalling egg2wheel script to /home/zachyee/.virtualenvs/pa-release/bin\r\n\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/wheel-0.23.0-py2.7.egg\r\n"
+    ],
+    [
+      0.002006,
+      "Searching for setuptools==20.1.1\r\nReading https://pypi.python.org/simple/setuptools/\r\n"
+    ],
+    [
+      3.234917,
+      "Best match: setuptools 20.1.1\r\nDownloading https://pypi.python.org/packages/9a/6f/3e4e5cc3fb0a155372791b0dbd0a997cea9699a72345d8e5f8fdbcc4e615/setuptools-20.1.1.tar.gz#md5=10a0f4feb9f2ea99acf634c8d7136d6d\r\n"
+    ],
+    [
+      0.834154,
+      "Processing setuptools-20.1.1.tar.gz\r\n"
+    ],
+    [
+      0.044436,
+      "Writing /tmp/easy_install-rriPrF/setuptools-20.1.1/setup.cfg\r\n"
+    ],
+    [
+      0.000144,
+      "Running setuptools-20.1.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-rriPrF/setuptools-20.1.1/egg-dist-tmp-0r3b6G\r\n"
+    ],
+    [
+      0.038949,
+      "warning: no files found matching '*' under directory 'setuptools/_vendor'\r\n"
+    ],
+    [
+      0.163797,
+      "Moving setuptools-20.1.1-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.002983,
+      "Adding setuptools 20.1.1 to easy-install.pth file\r\n"
+    ],
+    [
+      0.015328,
+      "Installing easy_install script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      9.2e-05,
+      "Installing easy_install-2.7 script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      0.000129,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/setuptools-20.1.1-py2.7.egg\r\n"
+    ],
+    [
+      0.004218,
+      "Searching for pip==7.1.2\r\n"
+    ],
+    [
+      0.000193,
+      "Reading https://pypi.python.org/simple/pip/\r\n"
+    ],
+    [
+      0.610336,
+      "Best match: pip 7.1.2"
+    ],
+    [
+      4.2e-05,
+      "\r\n"
+    ],
+    [
+      8.7e-05,
+      "Downloading https://pypi.python.org/packages/d0/92/1e8406c15d9372084a5bf79d96da3a0acc4e7fcf0b80020a4820897d2a5c/pip-7.1.2.tar.gz#md5=3823d2343d9f3aaab21cf9c917710196"
+    ],
+    [
+      3.1e-05,
+      "\r\n"
+    ],
+    [
+      1.096408,
+      "Processing pip-7.1.2.tar.gz\r\n"
+    ],
+    [
+      0.099702,
+      "Writing /tmp/easy_install-iasmNZ/pip-7.1.2/setup.cfg"
+    ],
+    [
+      2.8e-05,
+      "\r\n"
+    ],
+    [
+      0.000155,
+      "Running pip-7.1.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-iasmNZ/pip-7.1.2/egg-dist-tmp-Mis9wg"
+    ],
+    [
+      1.9e-05,
+      "\r\n"
+    ],
+    [
+      0.047067,
+      "warning: no previously-included files found matching '.coveragerc'"
+    ],
+    [
+      6.4e-05,
+      "\r\n"
+    ],
+    [
+      0.000428,
+      "warning: no previously-included files found matching '.mailmap'"
+    ],
+    [
+      4.2e-05,
+      "\r\n"
+    ],
+    [
+      0.000416,
+      "warning: no previously-included files found matching '.travis.yml'"
+    ],
+    [
+      2.3e-05,
+      "\r\n"
+    ],
+    [
+      0.000466,
+      "warning: no previously-included files found matching 'pip/_vendor/Makefile'"
+    ],
+    [
+      2.5e-05,
+      "\r\n"
+    ],
+    [
+      0.000386,
+      "warning: no previously-included files found matching 'tox.ini'"
+    ],
+    [
+      1.9e-05,
+      "\r\n"
+    ],
+    [
+      0.00045,
+      "warning: no previously-included files found matching 'dev-requirements.txt'"
+    ],
+    [
+      3.4e-05,
+      "\r\n"
+    ],
+    [
+      0.00178,
+      "no previously-included directories found matching '.travis'"
+    ],
+    [
+      2.1e-05,
+      "\r\n"
+    ],
+    [
+      0.000486,
+      "no previously-included directories found matching 'docs/_build'"
+    ],
+    [
+      3.9e-05,
+      "\r\n"
+    ],
+    [
+      0.000489,
+      "no previously-included directories found matching 'contrib'"
+    ],
+    [
+      3.6e-05,
+      "\r\n"
+    ],
+    [
+      0.000474,
+      "no previously-included directories found matching 'tasks'"
+    ],
+    [
+      3.3e-05,
+      "\r\n"
+    ],
+    [
+      0.000448,
+      "no previously-included directories found matching 'tests'"
+    ],
+    [
+      3.5e-05,
+      "\r\n"
+    ],
+    [
+      0.774052,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg"
+    ],
+    [
+      3e-05,
+      "\r\n"
+    ],
+    [
+      8.8e-05,
+      "Extracting pip-7.1.2-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages"
+    ],
+    [
+      1.8e-05,
+      "\r\n"
+    ],
+    [
+      0.454946,
+      "Adding pip 7.1.2 to easy-install.pth file\r\n"
+    ],
+    [
+      0.003828,
+      "Installing pip script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      0.00011,
+      "Installing pip2.7 script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      8.7e-05,
+      "Installing pip2 script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      0.000134,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg\r\n"
+    ],
+    [
+      0.012755,
+      "Searching for overrides==0.5\r\n"
+    ],
+    [
+      7.2e-05,
+      "Reading https://pypi.python.org/simple/overrides/\r\n"
+    ],
+    [
+      0.385571,
+      "Best match: overrides 0.5\r\nDownloading https://pypi.python.org/packages/3f/2a/daa64b1dab9e55cfa2c2618f251538e7aa1d790cd6fc0da314861b619875/overrides-0.5.tar.gz#md5=3005149a8fb23e0e10fa6ec5d2f4cb32\r\n"
+    ],
+    [
+      0.354153,
+      "Processing overrides-0.5.tar.gz\r\n"
+    ],
+    [
+      0.009701,
+      "Writing /tmp/easy_install-kZkZAL/overrides-0.5/setup.cfg\r\n"
+    ],
+    [
+      0.000924,
+      "Running overrides-0.5/setup.py -q bdist_egg --dist-dir /tmp/easy_install-kZkZAL/overrides-0.5/egg-dist-tmp-IBcyKo\r\n"
+    ],
+    [
+      0.047595,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.004228,
+      "Moving overrides-0.5-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.003285,
+      "Adding overrides 0.5 to easy-install.pth file\r\n"
+    ],
+    [
+      0.000188,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/overrides-0.5-py2.7.egg\r\n"
+    ],
+    [
+      0.006756,
+      "Searching for requests==2.7.0\r\n"
+    ],
+    [
+      7.6e-05,
+      "Reading https://pypi.python.org/simple/requests/\r\n"
+    ],
+    [
+      0.633118,
+      "Best match: requests 2.7.0\r\nDownloading https://pypi.python.org/packages/0a/00/8cc925deac3a87046a4148d7846b571cf433515872b5430de4cd9dea83cb/requests-2.7.0.tar.gz#md5=29b173fd5fa572ec0764d1fd7b527260\r\n"
+    ],
+    [
+      1.218706,
+      "Processing requests-2.7.0.tar.gz\r\n"
+    ],
+    [
+      0.049935,
+      "Writing /tmp/easy_install-lH0XYh/requests-2.7.0/setup.cfg\r\n"
+    ],
+    [
+      0.000194,
+      "Running requests-2.7.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-lH0XYh/requests-2.7.0/egg-dist-tmp-WL7v2g\r\n"
+    ],
+    [
+      0.356645,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/requests-2.7.0-py2.7.egg\r\n"
+    ],
+    [
+      3.2e-05,
+      "Extracting requests-2.7.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.210869,
+      "Adding requests 2.7.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.00358,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/requests-2.7.0-py2.7.egg\r\n"
+    ],
+    [
+      0.002872,
+      "Searching for fabric==1.10.1\r\nReading https://pypi.python.org/simple/fabric/\r\n"
+    ],
+    [
+      0.423509,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric (0.0.2.macosx-10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001025,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.2.macosx (10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000383,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.2.macosx-10.4 (i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.021116,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric (0.0.1.macosx-10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001216,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.1.macosx (10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000228,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.1.macosx-10.4 (i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.005089,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric (0.0.4.macosx-10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.010031,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.4.macosx (10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      0.001499,
+      "\r\n  PEP440Warning,\r\n/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.4.macosx-10.4 (i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.022971,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric (0.0.5.macosx-10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001497,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.5.macosx (10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.5.macosx-10.4 (i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.025506,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric (0.0.3.macosx-10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001981,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.3.macosx (10.4-i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'Fabric-0.0.3.macosx-10.4 (i386)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.102147,
+      "Best match: Fabric 1.10.1\r\n"
+    ],
+    [
+      5.2e-05,
+      "Downloading https://pypi.python.org/packages/5c/85/63690c70ec645780d3b40cc0fe4720cbf4729a2de7db55f7cd4cf268d1ed/Fabric-1.10.1.tar.gz#md5=596ad28296a264cedef021494bd40cd5\r\n"
+    ],
+    [
+      0.641259,
+      "Processing Fabric-1.10.1.tar.gz\r\n"
+    ],
+    [
+      0.023055,
+      "Writing /tmp/easy_install-3a862X/Fabric-1.10.1/setup.cfg\r\n"
+    ],
+    [
+      4.1e-05,
+      "Running Fabric-1.10.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-3a862X/Fabric-1.10.1/egg-dist-tmp-sIBHVR"
+    ],
+    [
+      0.000134,
+      "\r\n"
+    ],
+    [
+      0.039911,
+      "warning: no previously-included files matching '*' found under directory 'sites/docs/_build'\r\n"
+    ],
+    [
+      0.000226,
+      "warning: no previously-included files matching '*' found under directory 'sites/www/_build'\r\n"
+    ],
+    [
+      0.000785,
+      "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+    ],
+    [
+      1.7e-05,
+      "\r\n"
+    ],
+    [
+      0.000381,
+      "warning: no previously-included files matching '*.pyo' found under directory 'tests'"
+    ],
+    [
+      0.002563,
+      "\r\n"
+    ],
+    [
+      0.093006,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.001486,
+      "fabric.version: module references __file__\r\n"
+    ],
+    [
+      0.032356,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/Fabric-1.10.1-py2.7.egg\r\n"
+    ],
+    [
+      7.8e-05,
+      "Extracting Fabric-1.10.1-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.056719,
+      "Adding Fabric 1.10.1 to easy-install.pth file\r\n"
+    ],
+    [
+      0.003452,
+      "Installing fab script to /home/zachyee/.virtualenvs/pa-release/bin\r\n\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/Fabric-1.10.1-py2.7.egg\r\n"
+    ],
+    [
+      0.002605,
+      "Searching for paramiko==1.15.3\r\n"
+    ],
+    [
+      6.7e-05,
+      "Reading https://pypi.python.org/simple/paramiko/\r\n"
+    ],
+    [
+      0.431248,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-gyarados)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001167,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (gyarados)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.028459,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-doduo)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001007,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (doduo)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002828,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-fearow)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001387,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (fearow)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.052858,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.1-bulbasaur)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      3e-05,
+      "\r\n"
+    ],
+    [
+      1.5e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.4e-05,
+      "\r\n"
+    ],
+    [
+      0.001441,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.1 (bulbasaur)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      2.8e-05,
+      "\r\n"
+    ],
+    [
+      2.9e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.6e-05,
+      "\r\n"
+    ],
+    [
+      0.024506,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-ivysaur)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      3.5e-05,
+      "\r\n"
+    ],
+    [
+      3.7e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.7e-05,
+      "\r\n"
+    ],
+    [
+      0.002562,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (ivysaur)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      3.6e-05,
+      "\r\n"
+    ],
+    [
+      1.7e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.8e-05,
+      "\r\n"
+    ],
+    [
+      0.000433,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.1-charmander)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      2.2e-05,
+      "\r\n"
+    ],
+    [
+      1.6e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.6e-05,
+      "\r\n"
+    ],
+    [
+      0.002584,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.1 (charmander)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      3e-05,
+      "\r\n"
+    ],
+    [
+      1.7e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.5e-05,
+      "\r\n"
+    ],
+    [
+      0.015921,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-horsea)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      5.8e-05,
+      "\r\n"
+    ],
+    [
+      2.7e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      2.1e-05,
+      "\r\n"
+    ],
+    [
+      0.002479,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (horsea)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      6.1e-05,
+      "\r\n"
+    ],
+    [
+      3e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      3.6e-05,
+      "\r\n"
+    ],
+    [
+      0.01084,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko (0.9-eevee)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      2.9e-05,
+      "\r\n"
+    ],
+    [
+      1.6e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.5e-05,
+      "\r\n"
+    ],
+    [
+      0.002454,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'paramiko-0.9 (eevee)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      3.4e-05,
+      "\r\n"
+    ],
+    [
+      1.7e-05,
+      "  PEP440Warning,"
+    ],
+    [
+      1.6e-05,
+      "\r\n"
+    ],
+    [
+      0.003519,
+      "Best match: paramiko 1.15.3"
+    ],
+    [
+      3.8e-05,
+      "\r\n"
+    ],
+    [
+      8.8e-05,
+      "Downloading https://pypi.python.org/packages/d3/f5/e54f2783c68cd46d95c1d64ae371820562b1ccef97e6552463a460aa40e3/paramiko-1.15.3.tar.gz#md5=c959088669f8d951585aa6abc25c8ef6"
+    ],
+    [
+      4.6e-05,
+      "\r\n"
+    ],
+    [
+      1.161287,
+      "Processing paramiko-1.15.3.tar.gz\r\n"
+    ],
+    [
+      0.091717,
+      "Writing /tmp/easy_install-jQa2sJ/paramiko-1.15.3/setup.cfg\r\nRunning paramiko-1.15.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-jQa2sJ/paramiko-1.15.3/egg-dist-tmp-kzfIoE\r\n"
+    ],
+    [
+      0.129006,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.055085,
+      "Moving paramiko-1.15.3-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.003205,
+      "Adding paramiko 1.15.3 to easy-install.pth file\r\n"
+    ],
+    [
+      0.003899,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/paramiko-1.15.3-py2.7.egg\r\n"
+    ],
+    [
+      0.005283,
+      "Searching for argparse==1.4\r\n"
+    ],
+    [
+      0.000736,
+      "Reading https://pypi.python.org/simple/argparse/\r\n"
+    ],
+    [
+      0.367842,
+      "Best match: argparse 1.4.0\r\n"
+    ],
+    [
+      0.000198,
+      "Downloading https://pypi.python.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz#md5=08062d2ceb6596fcbc5a7e725b53746f\r\n"
+    ],
+    [
+      0.490889,
+      "Processing argparse-1.4.0.tar.gz\r\n"
+    ],
+    [
+      0.019512,
+      "Writing /tmp/easy_install-GGqE5E/argparse-1.4.0/setup.cfg\r\n"
+    ],
+    [
+      0.000514,
+      "Running argparse-1.4.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-GGqE5E/argparse-1.4.0/egg-dist-tmp-yqn3lO\r\n"
+    ],
+    [
+      0.045916,
+      "warning: no previously-included files matching '*.pyc' found anywhere in distribution\r\nwarning: no previously-included files matching '*.pyo' found anywhere in distribution\r\n"
+    ],
+    [
+      0.000117,
+      "warning: no previously-included files matching '*.orig' found anywhere in distribution\r\n"
+    ],
+    [
+      0.000354,
+      "warning: no previously-included files matching '*.rej' found anywhere in distribution\r\nno previously-included directories found matching 'doc/_build'\r\n"
+    ],
+    [
+      0.000541,
+      "no previously-included directories found matching 'env24'\r\nno previously-included directories found matching 'env25'\r\nno previously-included directories found matching 'env26'\r\nno previously-included directories found matching 'env27'\r\n"
+    ],
+    [
+      0.016811,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.010723,
+      "Moving argparse-1.4.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.003497,
+      "Adding argparse 1.4.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.001126,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/argparse-1.4.0-py2.7.egg\r\n"
+    ],
+    [
+      0.001308,
+      "Searching for six>=1.7.0\r\nReading https://pypi.python.org/simple/six/\r\n"
+    ],
+    [
+      0.379546,
+      "Best match: six 1.10.0\r\n"
+    ],
+    [
+      8.2e-05,
+      "Downloading https://pypi.python.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz#md5=34eed507548117b2ab523ab14b2f8b55\r\n"
+    ],
+    [
+      0.415968,
+      "Processing six-1.10.0.tar.gz\r\n"
+    ],
+    [
+      0.005794,
+      "Writing /tmp/easy_install-MWTnau/six-1.10.0/setup.cfg\r\n"
+    ],
+    [
+      0.000311,
+      "Running six-1.10.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-MWTnau/six-1.10.0/egg-dist-tmp-KEalxI\r\n"
+    ],
+    [
+      0.034368,
+      "no previously-included directories found matching 'documentation/_build'\r\n"
+    ],
+    [
+      0.010695,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.000592,
+      "six: module references __path__\r\n"
+    ],
+    [
+      0.004471,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/six-1.10.0-py2.7.egg\r\n"
+    ],
+    [
+      0.00017,
+      "Extracting six-1.10.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.009806,
+      "Adding six 1.10.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002901,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/six-1.10.0-py2.7.egg\r\nSearching for py>=1.4.17\r\nReading https://pypi.python.org/simple/py/\r\n"
+    ],
+    [
+      0.453041,
+      "Best match: py 1.4.31\r\nDownloading https://pypi.python.org/packages/f4/9a/8dfda23f36600dd701c6722316ba8a3ab4b990261f83e7d3ffc6dfedf7ef/py-1.4.31.tar.gz#md5=5d2c63c56dc3f2115ec35c066ecd582b\r\n"
+    ],
+    [
+      0.712859,
+      "Processing py-1.4.31.tar.gz\r\n"
+    ],
+    [
+      0.02412,
+      "Writing /tmp/easy_install-102t5P/py-1.4.31/setup.cfg\r\nRunning py-1.4.31/setup.py -q bdist_egg --dist-dir /tmp/easy_install-102t5P/py-1.4.31/egg-dist-tmp-veDPda\r\n"
+    ],
+    [
+      0.1167,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/py-1.4.31-py2.7.egg\r\nExtracting py-1.4.31-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.05947,
+      "Adding py 1.4.31 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002516,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/py-1.4.31-py2.7.egg\r\n"
+    ],
+    [
+      0.004869,
+      "Searching for virtualenv>=1.11.2\r\nReading https://pypi.python.org/simple/virtualenv/\r\n"
+    ],
+    [
+      0.607388,
+      "Best match: virtualenv 15.0.3\r\n"
+    ],
+    [
+      0.00012,
+      "Downloading https://pypi.python.org/packages/8b/2c/c0d3e47709d0458816167002e1aa3d64d03bdeb2a9d57c5bd18448fd24cd/virtualenv-15.0.3.tar.gz#md5=a5a061ad8a37d973d27eb197d05d99bf\r\n"
+    ],
+    [
+      2.308134,
+      "Processing virtualenv-15.0.3.tar.gz\r\n"
+    ],
+    [
+      0.04724,
+      "Writing /tmp/easy_install-pAtUnB/virtualenv-15.0.3/setup.cfg\r\n"
+    ],
+    [
+      0.000464,
+      "Running virtualenv-15.0.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-pAtUnB/virtualenv-15.0.3/egg-dist-tmp-2uIam9\r\n"
+    ],
+    [
+      0.024115,
+      "warning: no previously-included files matching '*' found under directory 'docs/_templates'\r\nwarning: no previously-included files matching '*' found under directory 'docs/_build'\r\n"
+    ],
+    [
+      0.104629,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/virtualenv-15.0.3-py2.7.egg\r\nExtracting virtualenv-15.0.3-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.028653,
+      "Adding virtualenv 15.0.3 to easy-install.pth file\r\n"
+    ],
+    [
+      0.003833,
+      "Installing virtualenv script to /home/zachyee/.virtualenvs/pa-release/bin\r\n"
+    ],
+    [
+      0.000537,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/virtualenv-15.0.3-py2.7.egg\r\n"
+    ],
+    [
+      0.00164,
+      "Searching for mccabe<0.5,>=0.2.1\r\n"
+    ],
+    [
+      5e-05,
+      "Reading https://pypi.python.org/simple/mccabe/\r\n"
+    ],
+    [
+      0.376184,
+      "Best match: mccabe 0.4.0\r\n"
+    ],
+    [
+      8.6e-05,
+      "Downloading https://pypi.python.org/packages/f6/e7/54461a958bb8b16f8db5f849d5d08b7d74153e064ac385fb68ff09f0bd27/mccabe-0.4.0.tar.gz#md5=8c425db05f310adcd4bb174b991f26f5\r\n"
+    ],
+    [
+      0.395509,
+      "Processing mccabe-0.4.0.tar.gz\r\n"
+    ],
+    [
+      0.014884,
+      "Writing /tmp/easy_install-hJYWN4/mccabe-0.4.0/setup.cfg\r\n"
+    ],
+    [
+      0.000397,
+      "Running mccabe-0.4.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-hJYWN4/mccabe-0.4.0/egg-dist-tmp-NdPLDp\r\n"
+    ],
+    [
+      0.485208,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.2.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions."
+    ],
+    [
+      0.000257,
+      "\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000539,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.2)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000708,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.9)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000832,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.000976,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001083,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.2)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001218,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.1.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001182,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.8)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001515,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.6)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001782,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.6.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.003118,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001932,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.6.3)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001845,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.7)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002188,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.0dev)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002212,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.3)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002497,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.1b1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002518,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.5.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002979,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.7.1)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001636,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.1.2)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001602,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001702,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.5)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001745,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.4)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001931,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-2.6.2)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.002183,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'pytest (runner-1.0b2)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      1.641614,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-1.1.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001022,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-1.0.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.001793,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-1.4.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.017759,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-1.3.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.004276,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-0.26)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.003257,
+      "/home/zachyee/.virtualenvs/pa-release/local/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'setuptools (scm-1.2.0)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.\r\n  PEP440Warning,\r\n"
+    ],
+    [
+      0.47436,
+      "\r\nInstalled /tmp/easy_install-hJYWN4/mccabe-0.4.0/temp/easy_install-oIJ1FM/pytest-runner-2.9/.eggs/setuptools_scm-1.11.1-py2.7.egg\r\n"
+    ],
+    [
+      0.009174,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.009264,
+      "\r\nInstalled /tmp/easy_install-hJYWN4/mccabe-0.4.0/.eggs/pytest_runner-2.9-py2.7.egg\r\n"
+    ],
+    [
+      0.013305,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/mccabe-0.4.0-py2.7.egg\r\nExtracting mccabe-0.4.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.012232,
+      "Adding mccabe 0.4.0 to easy-install.pth file\r\n\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/mccabe-0.4.0-py2.7.egg\r\nSearching for pep8!=1.6.0,!=1.6.1,!=1.6.2,>=1.5.7\r\nReading https://pypi.python.org/simple/pep8/\r\n"
+    ],
+    [
+      0.400774,
+      "Best match: pep8 1.7.0\r\nDownloading https://pypi.python.org/packages/3e/b5/1f717b85fbf5d43d81e3c603a7a2f64c9f1dabc69a1e7745bd394cc06404/pep8-1.7.0.tar.gz#md5=2b03109b0618afe3b04b3e63b334ac9d\r\n"
+    ],
+    [
+      0.502101,
+      "Processing pep8-1.7.0.tar.gz\r\n"
+    ],
+    [
+      0.022991,
+      "Writing /tmp/easy_install-n8lzxz/pep8-1.7.0/setup.cfg\r\n"
+    ],
+    [
+      0.00017,
+      "Running pep8-1.7.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-n8lzxz/pep8-1.7.0/egg-dist-tmp-sDYM6U\r\n"
+    ],
+    [
+      0.03134,
+      "warning: no previously-included files matching '*.pyc' found under directory 'docs'\r\n"
+    ],
+    [
+      0.000133,
+      "warning: no previously-included files matching '*.pyo' found under directory 'docs'\r\n"
+    ],
+    [
+      0.000217,
+      "warning: no previously-included files matching '*.pyc' found under directory 'testsuite'\r\n"
+    ],
+    [
+      0.000215,
+      "warning: no previously-included files matching '*.pyo' found under directory 'testsuite'\r\n"
+    ],
+    [
+      0.000172,
+      "no previously-included directories found matching 'docs/_build'\r\n"
+    ],
+    [
+      0.025828,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pep8-1.7.0-py2.7.egg\r\nExtracting pep8-1.7.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.018048,
+      "Adding pep8 1.7.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.002589,
+      "Installing pep8 script to /home/zachyee/.virtualenvs/pa-release/bin\r\n\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pep8-1.7.0-py2.7.egg\r\n"
+    ],
+    [
+      0.001496,
+      "Searching for pyflakes<1.1,>=0.8.1\r\nReading https://pypi.python.org/simple/pyflakes/\r\n"
+    ],
+    [
+      0.548051,
+      "Best match: pyflakes 1.0.0\r\nDownloading https://pypi.python.org/packages/45/24/6bc038f3422bab08c24173c1990a56e9eb0c4582a9b202858a33f8aefeb8/pyflakes-1.0.0.tar.gz#md5=914621d4c9546248419b435dd358eb6a\r\n"
+    ],
+    [
+      0.759579,
+      "Processing pyflakes-1.0.0.tar.gz\r\n"
+    ],
+    [
+      0.028901,
+      "Writing /tmp/easy_install-Gy7jTg/pyflakes-1.0.0/setup.cfg\r\n"
+    ],
+    [
+      0.000733,
+      "Running pyflakes-1.0.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-Gy7jTg/pyflakes-1.0.0/egg-dist-tmp-1bS1Ed\r\n"
+    ],
+    [
+      0.069647,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.000956,
+      "pyflakes.checker: module references __file__\r\npyflakes.checker: module references __path__\r\n"
+    ],
+    [
+      0.00099,
+      "pyflakes.test.test_api: module references __file__\r\npyflakes.test.test_undefined_names: module references __file__\r\npyflakes.test.test_undefined_names: module references __path__\r\n"
+    ],
+    [
+      0.024596,
+      "creating /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pyflakes-1.0.0-py2.7.egg\r\nExtracting pyflakes-1.0.0-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.049505,
+      "Adding pyflakes 1.0.0 to easy-install.pth file\r\n"
+    ],
+    [
+      0.001647,
+      "Installing pyflakes script to /home/zachyee/.virtualenvs/pa-release/bin"
+    ],
+    [
+      0.009918,
+      "\r\n\r\n"
+    ],
+    [
+      0.00098,
+      "Installed /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pyflakes-1.0.0-py2.7.egg\r\n"
+    ],
+    [
+      0.003359,
+      "Searching for ecdsa>=0.11\r\n"
+    ],
+    [
+      0.000123,
+      "Reading https://pypi.python.org/simple/ecdsa/\r\n"
+    ],
+    [
+      0.346143,
+      "Best match: ecdsa 0.13\r\n"
+    ],
+    [
+      4.1e-05,
+      "Downloading https://pypi.python.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz#md5=1f60eda9cb5c46722856db41a3ae6670\r\n"
+    ],
+    [
+      0.90429,
+      "Processing ecdsa-0.13.tar.gz\r\n"
+    ],
+    [
+      0.021488,
+      "Writing /tmp/easy_install-2Q86tW/ecdsa-0.13/setup.cfg\r\n"
+    ],
+    [
+      0.000345,
+      "Running ecdsa-0.13/setup.py -q bdist_egg --dist-dir /tmp/easy_install-2Q86tW/ecdsa-0.13/egg-dist-tmp-snxCRh\r\n"
+    ],
+    [
+      0.096535,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.014009,
+      "Moving ecdsa-0.13-py2.7.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages\r\n"
+    ],
+    [
+      0.005162,
+      "Adding ecdsa 0.13 to easy-install.pth file\r\n"
+    ],
+    [
+      0.001305,
+      "\r\nInstalled /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/ecdsa-0.13-py2.7.egg\r\n"
+    ],
+    [
+      0.001127,
+      "Searching for pycrypto!=2.4,>=2.1\r\nReading https://pypi.python.org/simple/pycrypto/\r\n"
+    ],
+    [
+      0.360744,
+      "Best match: pycrypto 2.6.1\r\nDownloading https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz#md5=55a61a054aa66812daf5161a0d5d7eda\r\n"
+    ],
+    [
+      0.809335,
+      "Processing pycrypto-2.6.1.tar.gz\r\n"
+    ],
+    [
+      0.057811,
+      "Writing /tmp/easy_install-cl6SS_/pycrypto-2.6.1/setup.cfg"
+    ],
+    [
+      5.6e-05,
+      "\r\nRunning pycrypto-2.6.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-cl6SS_/pycrypto-2.6.1/egg-dist-tmp-ZdixkZ\r\n"
+    ],
+    [
+      5.573128,
+      "zip_safe flag not set; analyzing archive contents...\r\n"
+    ],
+    [
+      0.146706,
+      "Moving pycrypto-2.6.1-py2.7-linux-x86_64.egg to /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages"
+    ],
+    [
+      4.7e-05,
+      "\r\n"
+    ],
+    [
+      0.004727,
+      "Adding pycrypto 2.6.1 to easy-install.pth file"
+    ],
+    [
+      3.8e-05,
+      "\r\n"
+    ],
+    [
+      0.003167,
+      "\r\n"
+    ],
+    [
+      3.5e-05,
+      "Installed /home/zachyee/.virtualenvs/pa-release/lib/python2.7/site-packages/pycrypto-2.6.1-py2.7-linux-x86_64.egg"
+    ],
+    [
+      3e-05,
+      "\r\n"
+    ],
+    [
+      0.00721,
+      "Finished processing dependencies for prestoadmin==0.0.61"
+    ],
+    [
+      7.7e-05,
+      "\r\n"
+    ],
+    [
+      0.05883,
+      "(pa-release)\u001b]0;zachyee@zachyee-VirtualBox: ~/workspace/zach/presto-admin\u0007\u001b[01;32mzachyee@zachyee-VirtualBox\u001b[00m:\u001b[01;34m~/workspace/zach/presto-admin\u001b[00m$ "
+    ]
+  ]
+}
